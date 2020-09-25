@@ -1,0 +1,8 @@
+# dependencies npm包文件
+/node_modules
+
+# tools 开发时工具
+/sqlite-tools-win32-x86-3330000
+
+# 前后端未分离时页面
+/views
