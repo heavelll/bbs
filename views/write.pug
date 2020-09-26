@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title 发帖
+  body
+    include head.pug
+    div(class="container-fluid")
+      form(style="max-width:500px;" action="/write" method="post")
+        input(type="text" class="form-control" placeholder="请在此输入标题" name="title")
+        br
+        textarea(class="form-control" rows="8" name="content" placeholder="请在此输入内容")
+        br
+        button(class="btn btn-primary btn-lg") 发布帖子
+    include footer.pug

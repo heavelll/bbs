@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+head
+  meta(charset="utf-8")
+  title 用户页面
+body
+  include head.pug
+  div(class="container-fluid")
+    h2 #{code ? 'TA' : '我'}的主页
+    div(style="overflow:hidden")
+      img(src=`${main.avatar}` class="img-thumbnail" style="float:left;width:140px;height:140px")
+      table
+        tr
+          td 
+            h4 用户名：
+          td
+            h4= main.name
+        tr
+        tr
+          td 
+            h4 邮箱: 
+          td
+            h4= main.email
+        tr
+    h3 发帖记录
+    div(class="panel")
+      h4 #{code ? 'TA' : '我'}发布的
+      div
+        if posts
+          each post in posts
+            p
+              a(href=`/post/${post.id}`)= post.title
+    div
+      h4 #{code ? 'TA' : '我'}回复的
+      div
+        if comments
+          each comment in comments
+            p
+              a(href=`/post/${comment.postId}`)= comment.title

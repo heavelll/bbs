@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title bbs
+  body
+    include head.pug
+
+    div(class="container-fluid")
+      div(class="panel panel-default")
+        div(class="panel-body")
+          h2 #{post.title}
+        div(class="panel-body")
+          p #{post.content}
+        div(class="panel-footer") 贴主:
+          a(href="") #{post.name}
+      
+      each comment in comments
+        div(class="panel panel-default")
+          div(class="panel-body")
+            p #{comment.content}
+          div(class="panel-footer") #{post.id==comment.ownerId?'贴主':'用户'}:
+            a(href="") #{comment.name}
+      hr
+      form(style="max-width:500px;" action="/comment" method="post")
+        input(type="hidden" value=post.id name="replyTo")
+        textarea(class="form-control" rows="8" name="content" placeholder="请在此输入回复内容")
+        br
+        button(class="submit btn btn-primary") 提交回复
+    
+    include footer.pug

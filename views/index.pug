@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title bbs
+  body
+    include head.pug
+    |
+    |
+    div(class="container-fluid")
+      if user
+        p 
+          img(src=user.avatar width="20px" height="20px")
+          |
+          |
+          a(href=`/person/${user.id}`) #{user.name}
+          |
+          |
+          | ,欢迎你!
+          |
+          |
+          a(href="/logout" class="button btn-xs btn-danger") 退出
+      else
+        p 未登录,请
+          a(href="/login") 登录
+          | ,无账号?
+          a(href="/register") 注册
+      p
+        a(href="/write" class="btn btn-primary") 我要发贴
+      each post in posts
+        div(class="panel panel-default")
+          div(class="panel-body lead")
+            a(href=`/post/${post.id}`)= post.title
+          div(class="panel-footer") 发帖人:
+            |
+            |
+            img(src=post.avatar width='20px' height='20px')
+            |
+            |
+            a(href=`/person/${post.ownerId}`)= post.name
+    include footer.pug

@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title 注册结果
+  body
+    include head.pug
+
+    div(class="contain")
+      p= result
+      if code == 0
+        a(href="/login") 去登陆
+      else if code == 1
+        button(class="btn btn-default" onclick="history.back()") 后退
+    include footer.pug
