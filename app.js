@@ -10,7 +10,7 @@ const apiRouter = require('./app-router.js')
 const path = require("path")
 const cors = require("cors")
 const app = express()
-const PORT = 80
+const PORT = 8081
 
 let uploader = multer({ dest: 'uploads/' });
 let captcha = svgCaptcha.create();
