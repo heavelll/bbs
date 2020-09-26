@@ -10,7 +10,7 @@ const apiRouter = require('./app-router.js')
 const path = require("path")
 const cors = require("cors")
 const app = express()
-const PORT = 8081
+const PORT = 8888
 
 let uploader = multer({ dest: 'uploads/' });
 let captcha = svgCaptcha.create();
@@ -26,8 +26,9 @@ sqlite.open({
 
 app.use(cors())
 app.locals.pretty = true;
-app.set('views', __dirname + '/views')
-app.use(express.static(__dirname + '/static'))
+app.use(express.static(__dirname + '/build'))
+// app.set('views', __dirname + '/views')
+// app.use(express.static(__dirname + '/static'))
 app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -64,7 +65,9 @@ app.use(async (req, res, next) => {
   next();
 })
 
+console.log(5)
 app.use('/api', apiRouter)
+console.log(6)
 
 
 //主页

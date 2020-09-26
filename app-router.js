@@ -14,6 +14,8 @@ dbPromise.then(value => {
 })
 module.exports = apiRouter
 
+console.log(1)
+
 //首页总贴json
 apiRouter.get('/posts', async (req, res, next) => {
   let posts = await db.all('SELECT postInfo.rowid AS id, postInfo.*, users.name, users.avatar FROM postInfo JOIN users WHERE users.rowid = postInfo.ownerId AND postInfo.active = 1 ORDER BY postInfo.lastComment DESC');
