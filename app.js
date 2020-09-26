@@ -65,9 +65,9 @@ app.use(async (req, res, next) => {
   next();
 })
 
-console.log(5)
+
 app.use('/api', apiRouter)
-console.log(6)
+
 
 
 //主页

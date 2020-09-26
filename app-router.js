@@ -14,7 +14,6 @@ dbPromise.then(value => {
 })
 module.exports = apiRouter
 
-console.log(1)
 
 //首页总贴json
 apiRouter.get('/posts', async (req, res, next) => {
